@@ -48,6 +48,8 @@ public class GraficoFrame extends JFrame{
 		add(panelQuantidades, BorderLayout.NORTH);
 		add(panelGrafico);
 		
+		
+		
 	}
 	
 }
