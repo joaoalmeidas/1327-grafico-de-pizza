@@ -1,5 +1,7 @@
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -48,7 +50,57 @@ public class GraficoFrame extends JFrame{
 		add(panelQuantidades, BorderLayout.NORTH);
 		add(panelGrafico);
 		
+		fieldAzul.addKeyListener(new KeyAdapter() {
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				
+				panelGrafico.setQuantidadeAzul(Integer.parseInt(fieldAzul.getText()));
+				repaint();
+				
+			}
+			
 		
+		});
+		
+		fieldVermelho.addKeyListener(new KeyAdapter() {
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				
+				panelGrafico.setQuantidadeVermelho(Integer.parseInt(fieldVermelho.getText()));
+				repaint();
+				
+			}
+			
+		
+		});
+		
+		fieldVerde.addKeyListener(new KeyAdapter() {
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				
+				panelGrafico.setQuantidadeVerde(Integer.parseInt(fieldVerde.getText()));
+				repaint();
+				
+			}
+			
+		
+		});
+		
+		fieldAmarelo.addKeyListener(new KeyAdapter() {
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				
+				panelGrafico.setQuantidadeAmarelo(Integer.parseInt(fieldAmarelo.getText()));
+				repaint();
+				
+			}
+			
+		
+		});
 		
 	}
 	

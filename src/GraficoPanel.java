@@ -7,10 +7,10 @@ import javax.swing.JPanel;
 
 public class GraficoPanel extends JPanel {
 	
-	private double grauAzul;
-	private double grauVermelho;
-	private double grauVerde;
-	private double grauAmarelo;
+	private double grauAzul = 0;
+	private double grauVermelho = 0;
+	private double grauVerde = 0;
+	private double grauAmarelo = 0;
 	
 	private int quantidadeAzul;
 	private int quantidadeVermelho;
@@ -23,16 +23,18 @@ public class GraficoPanel extends JPanel {
 		Graphics2D g2d = (Graphics2D) g;
 	
 		g.setColor(Color.RED);
-		g2d.fill(new Arc2D.Double(getWidth()/4, getHeight()/4, getWidth()/2, getHeight()/2, 0, 90, Arc2D.PIE));
+		g2d.fill(new Arc2D.Double(getWidth()/4, getHeight()/4, getWidth()/2, getHeight()/2, 0, getGrauVermelho(), Arc2D.PIE));
 		
 		g.setColor(Color.BLUE);
-		g2d.fill(new Arc2D.Double(getWidth()/4, getHeight()/4, getWidth()/2, getHeight()/2, 90, 90, Arc2D.PIE));
+		g2d.fill(new Arc2D.Double(getWidth()/4, getHeight()/4, getWidth()/2, getHeight()/2, 0 + getGrauVermelho(), getGrauAzul(), Arc2D.PIE));
 		
 		g.setColor(Color.GREEN);
-		g2d.fill(new Arc2D.Double(getWidth()/4, getHeight()/4, getWidth()/2, getHeight()/2, 180, 90, Arc2D.PIE));
+		g2d.fill(new Arc2D.Double(getWidth()/4, getHeight()/4, getWidth()/2, getHeight()/2, getGrauAzul() + getGrauVermelho(), getGrauVerde(),
+				Arc2D.PIE));
 		
 		g.setColor(Color.YELLOW);
-		g2d.fill(new Arc2D.Double(getWidth()/4, getHeight()/4, getWidth()/2, getHeight()/2, 270, 90, Arc2D.PIE));
+		g2d.fill(new Arc2D.Double(getWidth()/4, getHeight()/4, getWidth()/2, getHeight()/2, getGrauAzul() + getGrauVermelho() + getGrauVerde(),
+				getGrauAmarelo(), Arc2D.PIE));
 	}
 
 	public double getGrauAzul() {
@@ -111,13 +113,16 @@ public class GraficoPanel extends JPanel {
 	}
 
 	public void setQuantidadeTotal(int quantidadeTotal) {
-		this.quantidadeTotal += quantidadeTotal;
+		this.quantidadeTotal = getQuantidadeAzul() + getQuantidadeVermelho() + getQuantidadeVerde() + getQuantidadeAmarelo();  
 		atualizaGrau();
 	}
 	
 	public void atualizaGrau() {
 		
 		setGrauAzul(360 * getQuantidadeAzul() / getQuantidadeTotal());
+		System.out.println(getQuantidadeAzul());
+		System.out.println(getQuantidadeTotal());
+		System.out.println(getGrauAzul());
 		setGrauVermelho(360 * getQuantidadeVermelho() / getQuantidadeTotal());
 		setGrauVerde(360 * getQuantidadeVerde() / getQuantidadeTotal());
 		setGrauAmarelo(360 * getQuantidadeAmarelo() / getQuantidadeTotal());
