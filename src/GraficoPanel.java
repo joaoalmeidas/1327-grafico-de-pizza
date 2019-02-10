@@ -21,6 +21,8 @@ public class GraficoPanel extends JPanel {
 	public void paintComponent(Graphics g) {
 		
 		Graphics2D g2d = (Graphics2D) g;
+		
+		
 	
 		g.setColor(Color.RED);
 		g2d.fill(new Arc2D.Double(getWidth()/4, getHeight()/4, getWidth()/2, getHeight()/2, 0, getGrauVermelho(), Arc2D.PIE));
@@ -119,10 +121,10 @@ public class GraficoPanel extends JPanel {
 	
 	public void atualizaGrau() {
 		
-		setGrauAzul(360 * getQuantidadeAzul() / getQuantidadeTotal());
-		setGrauVermelho(360 * getQuantidadeVermelho() / getQuantidadeTotal());
-		setGrauVerde(360 * getQuantidadeVerde() / getQuantidadeTotal());
-		setGrauAmarelo(360 * getQuantidadeAmarelo() / getQuantidadeTotal());
+		setGrauAzul(360.0 * (double) getQuantidadeAzul() / (double) getQuantidadeTotal());
+		setGrauVermelho(360.0 * (double) getQuantidadeVermelho() / (double) getQuantidadeTotal());
+		setGrauVerde(360.0 * (double) getQuantidadeVerde() / (double) getQuantidadeTotal());
+		setGrauAmarelo(360.0 * (double) getQuantidadeAmarelo() / (double) getQuantidadeTotal());
 		
 	}
 
