@@ -2,6 +2,8 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -32,6 +34,11 @@ public class GraficoFrame extends JFrame{
 		fieldVermelho = new JTextField(3);
 		fieldVerde = new JTextField(3);
 		fieldAmarelo = new JTextField(3);
+
+		fieldAzul.setText("0");
+		fieldVermelho.setText("0");
+		fieldVerde.setText("0");
+		fieldAmarelo.setText("0");
 		
 		labelAzul = new JLabel("Azul");
 		labelVermelho = new JLabel("Vermelho");
@@ -55,6 +62,10 @@ public class GraficoFrame extends JFrame{
 			@Override
 			public void keyReleased(KeyEvent e) {
 				
+				if(fieldAzul.getText().equals("")) {
+					fieldAzul.setText("0");
+				}
+				
 				panelGrafico.setQuantidadeAzul(Integer.parseInt(fieldAzul.getText()));
 				repaint();
 				
@@ -67,6 +78,10 @@ public class GraficoFrame extends JFrame{
 
 			@Override
 			public void keyReleased(KeyEvent e) {
+				
+				if(fieldVermelho.getText().equals("")) {
+					fieldVermelho.setText("0");
+				}
 				
 				panelGrafico.setQuantidadeVermelho(Integer.parseInt(fieldVermelho.getText()));
 				repaint();
@@ -81,6 +96,10 @@ public class GraficoFrame extends JFrame{
 			@Override
 			public void keyReleased(KeyEvent e) {
 				
+				if(fieldVerde.getText().equals("")) {
+					fieldVerde.setText("0");
+				}
+				
 				panelGrafico.setQuantidadeVerde(Integer.parseInt(fieldVerde.getText()));
 				repaint();
 				
@@ -94,6 +113,10 @@ public class GraficoFrame extends JFrame{
 			@Override
 			public void keyReleased(KeyEvent e) {
 				
+				if(fieldAmarelo.getText().equals("")) {
+					fieldAmarelo.setText("0");
+				}
+				
 				panelGrafico.setQuantidadeAmarelo(Integer.parseInt(fieldAmarelo.getText()));
 				repaint();
 				
@@ -102,6 +125,65 @@ public class GraficoFrame extends JFrame{
 		
 		});
 		
+		fieldAzul.addMouseListener(new MouseAdapter() {
+
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+				if(fieldAzul.getText().equals("0")) {
+					fieldAzul.setText("");
+				}
+				
+				
+			}
+			
+		});
+		
+		fieldVermelho.addMouseListener(new MouseAdapter() {
+
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+				if(fieldVermelho.getText().equals("0")) {
+					fieldVermelho.setText("");
+				}
+				
+				
+			}
+			
+		});
+		
+		fieldVerde.addMouseListener(new MouseAdapter() {
+
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+				if(fieldVerde.getText().equals("0")) {
+					fieldVerde.setText("");
+				}
+				
+				
+			}
+			
+		});
+		
+		fieldAmarelo.addMouseListener(new MouseAdapter() {
+
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+				if(fieldAmarelo.getText().equals("0")) {
+					fieldAmarelo.setText("");
+				}
+				
+				
+			}
+			
+		});
+		
+		
+		
 	}
+	
 	
 }

@@ -120,9 +120,6 @@ public class GraficoPanel extends JPanel {
 	public void atualizaGrau() {
 		
 		setGrauAzul(360 * getQuantidadeAzul() / getQuantidadeTotal());
-		System.out.println(getQuantidadeAzul());
-		System.out.println(getQuantidadeTotal());
-		System.out.println(getGrauAzul());
 		setGrauVermelho(360 * getQuantidadeVermelho() / getQuantidadeTotal());
 		setGrauVerde(360 * getQuantidadeVerde() / getQuantidadeTotal());
 		setGrauAmarelo(360 * getQuantidadeAmarelo() / getQuantidadeTotal());
